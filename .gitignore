@@ -1,0 +1,5 @@
+# 예시
+node_modules/
+dist/
+.env
+.vscode/
