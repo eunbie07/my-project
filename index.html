@@ -39,20 +39,28 @@
 
     <div id="response"></div>
 
-    <script>
-      async function sendChat() {
-        const emotion = document.getElementById("emotion").value;
-        const spending = document.getElementById("spending").value;
+  <script>
+    async function sendChat() {
+      const emotion = document.getElementById('emotion').value;
+      const spending = document.getElementById('spending').value;
 
+      const responseDiv = document.getElementById('response');
+      responseDiv.innerText = "잠시만 기다려 주세요...";
+
+      try {
         const res = await fetch("http://localhost:3000/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ emotion, spending }),
+          body: JSON.stringify({ emotion, spending })
         });
 
         const data = await res.json();
-        document.getElementById("response").innerText = data.result;
+        responseDiv.innerText = data.result;
+      } catch (error) {
+        console.error("요청 실패:", error);
+        responseDiv.innerText = "서버와의 통신에 실패했습니다.";
       }
-    </script>
+    }
+  </script>
   </body>
 </html>
