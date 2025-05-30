@@ -1,0 +1,31 @@
+## .env
+.env
+
+**/.idea
+
+## c
+c/*
+c/*.o
+c/**/*
+!c/**/
+!c/**/*.c
+!c/**/lib/
+!c/**/lib/*.h
+!c/**/Makefile
+!c/**/Makefile.*
+
+## nodejs
+node/**/node_modules
+node/**/package-lock.json
+node/conf/*
+
+## python venv 
+**/.venv
+**/__pycache__/
+**/secret.json
+
+# chatbot_langchain/constants.py
+**/constants.py
+
+## python/yolov8-bs
+python/yolov8/result
