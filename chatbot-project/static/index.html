@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>감정 소비 챗봇</title>
+</head>
+<body>
+  <h2>감정-소비 챗봇</h2>
+  <textarea id="user-input" rows="4" cols="50" placeholder="지금 기분과 소비에 대해 말해보세요..."></textarea><br>
+  <button onclick="sendMessage()">보내기</button>
+  <div id="chat-response"></div>
+
+  <script>
+    async function sendMessage() {
+      const message = document.getElementById("user-input").value;
+      const response = await fetch("http://127.0.0.1:3000/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message }),
+      });
+      const data = await response.json();
+      document.getElementById("chat-response").innerText = data.response;
+    }
+  </script>
+</body>
+</html>

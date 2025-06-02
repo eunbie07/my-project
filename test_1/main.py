@@ -33,7 +33,7 @@ def chat(data: ChatRequest):
     response = requests.post(
         "http://localhost:11434/api/generate",
         json={
-            "model": "openhermes:latest",  # 여기만 수정
+            "model": "phi4",  # 여기만 수정
             "prompt": prompt,
             "stream": False
         }
